@@ -16,7 +16,7 @@ function App() {
   const [content, setContent] = useState(initialData)
 
   useEffect(() => {
-    fetch('/db.json').then((response) => response.json()).then((json) => setContent({ ...initialData, ...json })).catch(() => {})
+    fetch(`${import.meta.env.BASE_URL}db.json`).then((response) => response.json()).then((json) => setContent({ ...initialData, ...json })).catch(() => {})
   }, [])
 
   const jumpTo = (id) => {
